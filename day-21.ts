@@ -52,8 +52,6 @@ type ChangeColState<
     : never
   : never;
 
-type test = ChangeColState<["  ", "  ", "  "], 1, "❌">;
-
 type ChangeRowState<
   T extends TicTacToeBoard,
   Row extends number,
@@ -73,8 +71,6 @@ type ChangeRowState<
     : never
   : never;
 
-type test2 = ChangeRowState<EmptyBoard, 1, 2, "❌">;
-
 type WinCells = [
   [[0, 0], [0, 1], [0, 2]],
   [[0, 0], [1, 0], [2, 0]],
@@ -84,18 +80,6 @@ type WinCells = [
   [[1, 0], [1, 1], [1, 2]],
   [[2, 0], [2, 1], [2, 2]],
   [[0, 2], [1, 1], [2, 0]]
-];
-
-type TestBoardLose = [
-  ["⭕", "❌", "  "],
-  ["⭕", "❌", "  "],
-  ["❌", "  ", "❌"]
-];
-
-type TestBoardWin = [
-  ["⭕", "❌", "  "],
-  ["⭕", "❌", "  "],
-  ["⭕", "  ", "❌"]
 ];
 
 type CheckWinPerArray<T extends TicTacToeBoard, State, U> = U extends [
@@ -121,8 +105,6 @@ type CheckDraw<
   Col extends number = 0 | 1 | 2,
   Row extends number = 0 | 1 | 2
 > = T[Row][Col] extends TicTacToeChip ? true : false;
-
-type Test5 = CheckDraw<test_draw_actual["board"]>;
 
 type TicTacToe<
   T extends TicTacToeGame,
